@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="svg5779" viewBox="0 0 522.87 299.38" version="1.1">
+ <title id="title6421">camion</title>
+ <g id="layer1" stroke-linejoin="round" transform="translate(-108.47 -338.92)" stroke="#000" stroke-linecap="round" fill="#fff">
+  <path id="path6377" d="m613.73 561.42 15.565 12.445 1.0377 24.891h-17.641z" stroke-width="2"/>
+  <path id="path5847" d="m311.26 599.51 304.91 0.0571-3.2752-259.64-302.93 4.4922z" stroke-width="2"/>
+  <path id="path6357" d="m121.92 601.64 191.45-2.0742-2.5942-174.24c-27.312 0.37317-50.65 1.4297-76.27 5.1856l-23.348 66.375c-17.837 5.6309-76.157 20.409-90.278 28.002z" stroke-width="2"/>
+  <g id="g5835" transform="matrix(1.368 0 0 1.3673 -234.66 52.908)">
+   <path id="path5837" d="m331.36 395.03c1.2127 20.416-22.046 38.548-41.77 30.386-19.747-6.8865-27.487-33.771-14.457-49.905 9.3854-13.138 29.779-17.145 42.791-6.8625 8.3495 6.0478 13.758 16.101 13.436 26.381z" stroke-width="1.4624"/>
+   <path id="path5839" d="m317.36 395.32c0.66268 11.165-12.047 21.082-22.825 16.618-10.791-3.7662-15.02-18.469-7.9-27.292 5.1287-7.1852 16.273-9.3761 23.383-3.753 4.5626 3.3074 7.5183 8.8054 7.342 14.427z" stroke-width=".73118"/>
+  </g>
+  <g id="g6359" transform="matrix(1.368 0 0 1.3673 128.62 51.914)">
+   <path id="path6361" d="m331.36 395.03c1.2127 20.416-22.046 38.548-41.77 30.386-19.747-6.8865-27.487-33.771-14.457-49.905 9.3854-13.138 29.779-17.145 42.791-6.8625 8.3495 6.0478 13.758 16.101 13.436 26.381z" stroke-width="1.4624"/>
+   <path id="path6363" d="m317.36 395.32c0.66268 11.165-12.047 21.082-22.825 16.618-10.791-3.7662-15.02-18.469-7.9-27.292 5.1287-7.1852 16.273-9.3761 23.383-3.753 4.5626 3.3074 7.5183 8.8054 7.342 14.427z" stroke-width=".73118"/>
+  </g>
+  <path id="path6367" d="m239.18 439.33 64.336-3.6299v153.49l-79.088 1.3319-3.6295-94.63z"/>
+  <path id="path6369" d="m243.33 448.15-13.124 45.267 67.379-0.51857-1.3324-47.86z"/>
+  <path id="path6373" d="m279.13 505.71-1.5565 8.2969 17.122-1.0371-0.51885-7.2598z"/>
+  <path id="path6375" d="m121.92 575.2-12.452 5.0818v19.601l12.452 0.72598v-21.053z" stroke-width="2"/>
+  <path id="path6381" d="m337.58 370.28 3.8362 154.24 246.79-1.542-2.5574-152.17z"/>
+ </g>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+    <dc:publisher>
+     <cc:Agent rdf:about="http://openclipart.org/">
+      <dc:title>Openclipart</dc:title>
+     </cc:Agent>
+    </dc:publisher>
+   </cc:Work>
+   <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+   </cc:License>
+  </rdf:RDF>
+ </metadata>
+</svg>

@@ -1,39 +1,85 @@
-/*--------------------*/
-*{
-	padding: 0;
-	margin: 0;
-	border: 0;
+body{
+    background-color: #EFEFEF;
+    font-family: 'Press Start 2P', cursive;
+    color:#333333;
+    font-size: 10px;
 }
-*,*:before,*:after{
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+.wrapper{
+    min-width: 1110px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 0 auto;
 }
-:focus,:active{outline: none;}
-a:focus,a:active{outline: none;}
+.nav{
+   display: flex; 
+   justify-content: center;
+   list-style-type: none;
+   padding-left: 0;
 
-nav,footer,header,aside{display: block;}
-
-html,body{
-	height: 100%;
-	width: 100%;
-	font-size: 100%;
-	line-height: 1;
-	font-size: 14px;
-	-ms-text-size-adjust: 100%;
-	-moz-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
 }
-input,button,textarea{font-family:inherit;}
-
-input::-ms-clear{display: none;}
-button{cursor: pointer;}
-button::-moz-focus-inner {padding:0;border:0;}
-a, a:visited{text-decoration: none;}
-a:hover{text-decoration: none;}
-ul li{list-style: none;}
-img{vertical-align: top;}
-
-h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
-/*--------------------*/
-
+.nav>li{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.nav>li>a{
+    text-decoration: none;
+    color:#333333;
+}
+.header{
+    background-color: #fff;   
+}
+.header-top{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 0;
+}
+.logo{
+    
+    color: #66C05D;
+    font-size: 30px;
+    font-weight: 500;
+}
+.header-info span{   
+    font-size: 14px;    
+}
+.btn{
+    color:black;
+    font-size: 14px;
+    border-radius: 20px;
+    border: 2px solid #66C05D;
+    background-color: transparent;
+    padding: 10px 15px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+.header-bottom{
+    padding: 15px 0;
+}
+.header-bottom.nav{
+    font-size: 16px;
+    margin: 0;
+}
+hr{
+    border-color:#333333;
+}
+.banner{
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    color: #EFEFEF;
+}
+.banner p{
+    margin-bottom: 50px;
+}
+.btn2{
+    color: #EFEFEF;
+    text-decoration: none;
+    border-radius: 20px;
+    border: 2px solid #EFEFEF;
+    background-color: transparent;
+    padding: 10px 15px;
+}
