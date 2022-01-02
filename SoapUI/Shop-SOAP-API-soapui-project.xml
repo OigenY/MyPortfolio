@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="5ae61d0d-a568-46ac-8b7c-026d49f99efd" activeEnvironment="Default" name="Shop SOAP API" resourceRoot="" soapui-version="5.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c62795e6-d889-419e-9f34-783c02e3dffc" wsaVersion="NONE" name="RpcLiteralServiceBinding" type="wsdl" bindingName="{http://foo.bar/rpcliteralservice}RpcLiteralServiceBinding" soapVersion="1_1" anonymous="optional" definition="http://shop.bugred.ru/soap.php?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://shop.bugred.ru/soap.php?wsdl"><con:part><con:url>http://shop.bugred.ru/soap.php?wsdl</con:url><con:content><![CDATA[<definitions name="RpcLiteralService" targetNamespace="http://foo.bar/rpcliteralservice" xmlns:tns="http://foo.bar/rpcliteralservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://foo.bar/rpcliteralservice/types">
+  <types>
+    <xsd:schema targetNamespace="http://foo.bar/rpcliteralservice/types" xmlns="http://foo.bar/rpcliteralservice/types">
+      <xsd:element name="Response_search" nillable="true" type="ns:Response_search"/>
+      <xsd:complexType name="Response_search">
+        <xsd:sequence>
+          <xsd:element name="results" type="ns:ArrayOfResults"/>
+          <xsd:element name="iserror" type="xsd:int"/>
+          <xsd:element name="error" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfResults">
+        <xsd:complexContent>
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute ref="soapenc:arrayType" soap:arrayType="ns:Result[]"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="Result" nillable="true" type="ns:Result"/>
+      <xsd:complexType name="Result">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int"/>
+          <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="section" type="xsd:string"/>
+          <xsd:element name="description" type="xsd:string"/>
+          <xsd:element name="color" type="xsd:string"/>
+          <xsd:element name="size" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:float"/>
+          <xsd:element name="params" type="xsd:string"/>
+          <xsd:element name="photo" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Response_create" nillable="true" type="ns:Response_create"/>
+      <xsd:complexType name="Response_create">
+        <xsd:sequence>
+          <xsd:element name="new_item" element="ns:New_item"/>
+          <xsd:element name="iserror" type="xsd:int"/>
+          <xsd:element name="error" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="New_item" nillable="true" type="ns:New_item"/>
+      <xsd:complexType name="New_item">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int"/>
+          <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="section" type="xsd:string"/>
+          <xsd:element name="description" type="xsd:string"/>
+          <xsd:element name="color" type="xsd:string"/>
+          <xsd:element name="size" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:float"/>
+          <xsd:element name="params" type="xsd:string"/>
+          <xsd:element name="photo" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Response_update" nillable="true" type="ns:Response_update"/>
+      <xsd:complexType name="Response_update">
+        <xsd:sequence>
+          <xsd:element name="iserror" type="xsd:int"/>
+          <xsd:element name="error" type="xsd:string"/>
+          <xsd:element name="message" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Response_delete" nillable="true" type="ns:Response_delete"/>
+      <xsd:complexType name="Response_delete">
+        <xsd:sequence>
+          <xsd:element name="iserror" type="xsd:int"/>
+          <xsd:element name="error" type="xsd:string"/>
+          <xsd:element name="message" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Response_get" nillable="true" type="ns:Response_get"/>
+      <xsd:complexType name="Response_get">
+        <xsd:sequence>
+          <xsd:element name="result_item" element="ns:Result_item"/>
+          <xsd:element name="iserror" type="xsd:int"/>
+          <xsd:element name="error" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Result_item" nillable="true" type="ns:Result_item"/>
+      <xsd:complexType name="Result_item">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int"/>
+          <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="section" type="xsd:string"/>
+          <xsd:element name="description" type="xsd:string"/>
+          <xsd:element name="color" type="xsd:string"/>
+          <xsd:element name="size" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:float"/>
+          <xsd:element name="params" type="xsd:string"/>
+          <xsd:element name="photo" type="xsd:string"/>
+          <xsd:element name="photos" type="ns:ArrayOfPhotos"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfPhotos">
+        <xsd:complexContent>
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute ref="soapenc:arrayType" soap:arrayType="xsd:string[]"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="Response_select" nillable="true" type="ns:Response_select"/>
+      <xsd:complexType name="Response_select">
+        <xsd:sequence>
+          <xsd:element name="results_query" type="ns:ArrayOfResults_query"/>
+          <xsd:element name="iserror" type="xsd:int"/>
+          <xsd:element name="error" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfResults_query">
+        <xsd:complexContent>
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute ref="soapenc:arrayType" soap:arrayType="ns:Results_query[]"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="Results_query" nillable="true" type="ns:Results_query"/>
+      <xsd:complexType name="Results_query">
+        <xsd:sequence/>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="searchRequest">
+    <part name="query" type="xsd:string"/>
+    <part name="color" type="xsd:string"/>
+    <part name="size" type="xsd:string"/>
+    <part name="price_from" type="xsd:float"/>
+    <part name="price_to" type="xsd:float"/>
+    <part name="param" type="xsd:float"/>
+  </message>
+  <message name="searchResponse">
+    <part name="response_search" element="ns:Response_search"/>
+  </message>
+  <message name="createRequest">
+    <part name="name" type="xsd:string"/>
+    <part name="section" type="xsd:string"/>
+    <part name="description" type="xsd:string"/>
+    <part name="color" type="xsd:string"/>
+    <part name="size" type="xsd:string"/>
+    <part name="price" type="xsd:string"/>
+    <part name="params" type="xsd:string"/>
+    <part name="photo" type="xsd:string"/>
+  </message>
+  <message name="createResponse">
+    <part name="response_create" element="ns:Response_create"/>
+  </message>
+  <message name="updateRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="name" type="xsd:string"/>
+    <part name="section" type="xsd:string"/>
+    <part name="description" type="xsd:string"/>
+    <part name="color" type="xsd:string"/>
+    <part name="size" type="xsd:string"/>
+    <part name="price" type="xsd:string"/>
+    <part name="params" type="xsd:string"/>
+    <part name="photo" type="xsd:string"/>
+  </message>
+  <message name="updateResponse">
+    <part name="response_update" element="ns:Response_update"/>
+  </message>
+  <message name="deleteRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+  <message name="deleteResponse">
+    <part name="response_delete" element="ns:Response_delete"/>
+  </message>
+  <message name="getRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+  <message name="getResponse">
+    <part name="response_get" element="ns:Response_get"/>
+  </message>
+  <message name="selectRequest">
+    <part name="sql_query" type="xsd:string"/>
+  </message>
+  <message name="selectResponse">
+    <part name="response_select" element="ns:Response_select"/>
+  </message>
+  <portType name="RpcLiteralServicePortType">
+    <operation name="search">
+      <input message="tns:searchRequest"/>
+      <output message="tns:searchResponse"/>
+    </operation>
+    <operation name="create">
+      <input message="tns:createRequest"/>
+      <output message="tns:createResponse"/>
+    </operation>
+    <operation name="update">
+      <input message="tns:updateRequest"/>
+      <output message="tns:updateResponse"/>
+    </operation>
+    <operation name="delete">
+      <input message="tns:deleteRequest"/>
+      <output message="tns:deleteResponse"/>
+    </operation>
+    <operation name="get">
+      <input message="tns:getRequest"/>
+      <output message="tns:getResponse"/>
+    </operation>
+    <operation name="select">
+      <input message="tns:selectRequest"/>
+      <output message="tns:selectResponse"/>
+    </operation>
+  </portType>
+  <binding name="RpcLiteralServiceBinding" type="tns:RpcLiteralServicePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="search">
+      <soap:operation soapAction="http://foo.bar/rpcliteralservice/#search"/>
+      <input>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </output>
+    </operation>
+    <operation name="create">
+      <soap:operation soapAction="http://foo.bar/rpcliteralservice/#create"/>
+      <input>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </output>
+    </operation>
+    <operation name="update">
+      <soap:operation soapAction="http://foo.bar/rpcliteralservice/#update"/>
+      <input>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </output>
+    </operation>
+    <operation name="delete">
+      <soap:operation soapAction="http://foo.bar/rpcliteralservice/#delete"/>
+      <input>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </output>
+    </operation>
+    <operation name="get">
+      <soap:operation soapAction="http://foo.bar/rpcliteralservice/#get"/>
+      <input>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </output>
+    </operation>
+    <operation name="select">
+      <soap:operation soapAction="http://foo.bar/rpcliteralservice/#select"/>
+      <input>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://foo.bar/rpcliteralservice"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="RpcLiteralServiceService">
+    <port name="RpcLiteralServicePort" binding="tns:RpcLiteralServiceBinding">
+      <soap:address location="http://shop.bugred.ru/soap.php"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://shop.bugred.ru/soap.php</con:endpoint></con:endpoints><con:operation id="79b0522d-f7ca-46de-b5b5-befae874de73" isOneWay="false" action="http://foo.bar/rpcliteralservice/#create" name="create" bindingOperationName="create" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="df91cb21-708f-4b53-b8c7-ffb4b31394f8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://shop.bugred.ru/soap.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rpc="http://foo.bar/rpcliteralservice">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <rpc:create>
+         <name>sweater </name>
+         <section>Test</section>
+         <description>warm sweater</description>
+         <color>Чёрный</color>
+         <size>┐(￣∀￣)┌</size>
+         <price>1000000</price>
+         <params>Special</params>
+         <photo>data:image/jpeg;base64,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</photo>
+          </rpc:create>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://foo.bar/rpcliteralservice/#create"/><con:wsrmConfig version="1.2"/></con:call><con:call id="2e8deb93-c510-4791-bd16-8aa359c7ebad" name="Template of Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://shop.bugred.ru/soap.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rpc="http://foo.bar/rpcliteralservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <rpc:create>\r
+         <name>Mikasa Ackerman </name>\r
+         <section>Test</section>\r
+         <description>some</description>\r
+         <color>Чёрный</color>\r
+         <size>┐(￣∀￣)┌</size>\r
+         <price>1000000</price>\r
+         <params>Special</params>\r
+         <photo> </photo>
+      </rpc:create>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://foo.bar/rpcliteralservice/#create"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="5a8358d0-6a27-4fbf-9c1d-877f4ba6bd9c" isOneWay="false" action="http://foo.bar/rpcliteralservice/#delete" name="delete" bindingOperationName="delete" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="71752e03-06a0-47fe-9797-278eef1d1b75" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://shop.bugred.ru/soap.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rpc="http://foo.bar/rpcliteralservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <rpc:delete>\r
+         <id>200</id>\r
+      </rpc:delete>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://foo.bar/rpcliteralservice/#delete"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="5a7ce491-16f9-4610-bfb6-f295b0882acd" isOneWay="false" action="http://foo.bar/rpcliteralservice/#get" name="get" bindingOperationName="get" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="66391d0a-dd8a-40db-bd30-d8b0f5203015" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://shop.bugred.ru/soap.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rpc="http://foo.bar/rpcliteralservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <rpc:get>\r
+         <id>188</id>\r
+      </rpc:get>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://foo.bar/rpcliteralservice/#get"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="24e76eee-9b5e-41ec-89af-d49d9e643462" isOneWay="false" action="http://foo.bar/rpcliteralservice/#search" name="search" bindingOperationName="search" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ff7b0fe7-2e7c-4dbb-846c-f3909fc4a0f8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://shop.bugred.ru/soap.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rpc="http://foo.bar/rpcliteralservice">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <rpc:search>
+         <query>Шортики</query>
+      </rpc:search>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://foo.bar/rpcliteralservice/#search"/><con:wsrmConfig version="1.2"/></con:call><con:call id="e7b413d6-0d4b-4b29-a9b0-fa6d6d9f0559" name="Template of Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://shop.bugred.ru/soap.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rpc="http://foo.bar/rpcliteralservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <rpc:search>\r
+         <query>sweater</query>\r
+         <color>Чёрный</color>\r
+         <size>┐(￣∀￣)┌</size>\r
+         <price_from>1000000</price_from>\r
+         <price_to>1000000</price_to>\r
+         <param>Special</param>\r
+      </rpc:search>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://foo.bar/rpcliteralservice/#search"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="03987ba1-a4a2-4f88-85c1-c3c8af578aff" isOneWay="false" action="http://foo.bar/rpcliteralservice/#select" name="select" bindingOperationName="select" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="17517e73-b665-47cf-968b-f8a702d22ed0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://shop.bugred.ru/soap.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rpc="http://foo.bar/rpcliteralservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <rpc:select>\r
+         <sql_query>select * from items where last_id = 188</sql_query>\r
+      </rpc:select>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://foo.bar/rpcliteralservice/#select"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a8905ae6-e474-41ee-b3a5-bc0106200a81" isOneWay="false" action="http://foo.bar/rpcliteralservice/#update" name="update" bindingOperationName="update" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="04421be0-737a-4c56-b293-1310f823760d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://shop.bugred.ru/soap.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rpc="http://foo.bar/rpcliteralservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <rpc:update>\r
+         <id>188</id>\r
+         <name>some info</name>\r
+         <section>Test</section>\r
+         <description>some info</description>\r
+         <color>Черный</color>\r
+         <size>┐(￣∀￣)┌</size>\r
+         <price>1000000</price>\r
+         <params>Special</params>\r
+         <photo>?</photo>\r
+      </rpc:update>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://foo.bar/rpcliteralservice/#update"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
