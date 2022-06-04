@@ -1,0 +1,100 @@
+12:01:47.628 Navigated to https://www.carfax.ca/
+12:03:25.646 Navigated to https://www.carfax.ca/Service/
+12:03:25.659 www.carfax.ca/:84 <link rel=preload> has an invalid `href` value
+12:03:25.689 www.carfax.ca/:40 GET https://static.carfax.com/myx/landing/header/autoShop-s.webp 403
+12:03:25.689 www.carfax.ca/:67 GET https://static.carfax.com/global-header/imgs/menu.svg 403
+12:03:25.690 www.carfax.ca/:81 GET https://static.carfax.com/global-header-ca/v1.9.5/main.css net::ERR_ABORTED 403
+12:03:25.745 www.carfax.ca/:68 GET https://static.carfax.com/global-header/imgs/logo.svg 403
+12:03:25.746 www.carfax.ca/:74 GET https://static.carfax.com/global-header/imgs/user-circle.png 403
+12:03:25.760 www.carfax.ca/:121 GET https://static.carfax.com/carfax-omniture/cfx-omniture.js net::ERR_ABORTED 403
+12:03:25.780 www.carfax.ca/:300 GET https://static.carfax.com/myx/ca/carfaxCanadaLogo.svg 403
+12:03:25.780 www.carfax.ca/:329 GET https://static.carfax.com/global-header-ca/v1.9.5/CFXHeaderCA.js net::ERR_ABORTED 403
+12:03:25.781 www.carfax.ca/:1221 GET https://static.carfax.com/global-footer-ca/v1.6.5/index.js net::ERR_ABORTED 403
+12:03:25.786 www.carfax.ca/:609 GET https://static.carfax.com/myx/ca/angledDashCA.webp 403
+12:03:25.787 www.carfax.ca/:609 GET https://static.carfax.com/myx/landing/appStore/appStore-l.png 403
+12:03:25.787 www.carfax.ca/:609 GET https://static.carfax.com/myx/landing/appStore/googlePlay-l.png 403
+12:03:25.788 www.carfax.ca/:609 GET https://static.carfax.com/myx/ca/serviceHistoryCA-l.webp 403
+12:03:25.788 www.carfax.ca/:609 GET https://static.carfax.com/myx/ca/oilChangeCA-l.webp 403
+12:03:25.815 (index):1308 GET https://static.carfax.com/global-footer-ca/v1.6.5/main.css net::ERR_ABORTED 403
+loadDeferredStyles @ (index):1308
+nrWrapper @ (index):87
+setTimeout (async)
+nrWrapper @ (index):87
+(anonymous) @ (index):1318
+nrWrapper @ (index):87
+requestAnimationFrame (async)
+nrWrapper @ (index):87
+(anonymous) @ (index):1317
+12:03:29.666 www.carfax.ca/:1 The resource https://static.carfax.com/global-header/imgs/logo.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+12:03:29.667 www.carfax.ca/:1 The resource https://static.carfax.com/global-header/imgs/user-circle.png was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+12:03:29.667 www.carfax.ca/:1 The resource https://static.carfax.com/global-header/imgs/menu.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+12:03:37.026 Navigated to https://www.carfax.ca/Service/signup
+12:03:37.126 signup:175 GET https://static.carfax.com/global-header/imgs/menu.svg 403
+12:03:37.126 signup:189 GET https://static.carfax.com/myx/ca/carfaxCanadaLogo.svg 403
+12:03:37.126 signup:198 GET https://static.carfax.com/global-header/imgs/user-circle.png 403
+12:03:37.449 signup:25 Cross-Origin Read Blocking (CORB) blocked cross-origin response https://www.carfax.eu/ with MIME type text/html. See https://www.chromestatus.com/feature/5629709824032768 for more details.
+12:03:37.449 signup:1 Refused to execute script from 'https://www.carfax.eu/' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.
+12:03:37.450 s_code.js:10 Uncaught ReferenceError: Visitor is not defined
+    at s_code.js:10:13
+(anonymous) @ s_code.js:10
+12:03:37.452 s_recall_widget.js:7 Uncaught ReferenceError: Visitor is not defined
+    at s_recall_widget.js:7:27
+(anonymous) @ s_recall_widget.js:7
+12:03:37.964 client-7804e7679ebdb24c99ad.js:1 [Violation] Only request geolocation information in response to a user gesture.
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+o @ client-7804e7679ebdb24c99ad.js:1
+t.getLocationFromWindowNavigator @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+a @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ vendor-6561296f20024455a44a.js:2
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+cu @ vendor-6561296f20024455a44a.js:2
+Ic @ vendor-6561296f20024455a44a.js:2
+t.unstable_runWithPriority @ vendor-6561296f20024455a44a.js:2
+Wi @ vendor-6561296f20024455a44a.js:2
+Sc @ vendor-6561296f20024455a44a.js:2
+(anonymous) @ vendor-6561296f20024455a44a.js:2
+U @ vendor-6561296f20024455a44a.js:2
+O.port1.onmessage @ vendor-6561296f20024455a44a.js:2
+12:03:37.970 signup:1 Geolocation permission has been blocked as the user has ignored the permission prompt several times. This can be reset in Page Info which can be accessed by clicking the lock icon next to the URL. See https://www.chromestatus.com/feature/6443143280984064 for more information.
+12:03:37.970 client-7804e7679ebdb24c99ad.js:1 Geolocation Error: Unable to get location from navigator. {functionName: 'getLocationFromNavigator', oasId: undefined, accountId: undefined, email: undefined, error: GeolocationPositionError, …}
+log @ client-7804e7679ebdb24c99ad.js:1
+logWarning @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+s @ client-7804e7679ebdb24c99ad.js:1
+Promise.then (async)
+l @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+a @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+(anonymous) @ vendor-6561296f20024455a44a.js:2
+(anonymous) @ client-7804e7679ebdb24c99ad.js:1
+cu @ vendor-6561296f20024455a44a.js:2
+Ic @ vendor-6561296f20024455a44a.js:2
+t.unstable_runWithPriority @ vendor-6561296f20024455a44a.js:2
+Wi @ vendor-6561296f20024455a44a.js:2
+Sc @ vendor-6561296f20024455a44a.js:2
+(anonymous) @ vendor-6561296f20024455a44a.js:2
+U @ vendor-6561296f20024455a44a.js:2
+O.port1.onmessage @ vendor-6561296f20024455a44a.js:2
+12:03:38.724 Navigated to https://auth.carfax.com/login?state=hKFo2SBFdjVPOUpDaU5helRoWEVxYS02NTZwVXBMTk9jYlRoMaFupWxvZ2luo3RpZNkgWXpXQ3BmZlpwZUJPZXZfMkNhS1d2Tm5taG4yVWtfR0ujY2lk2SB2M0Rsa0Q4Z2ZSTEd4MXcwR0lvYWJvSEtmR1ZENzRTTg&client=v3DlkD8gfRLGx1w0GIoaboHKfGVD74SN&protocol=oauth2&audience=https%3A%2F%2Fwww.carfax.com%2Fapi&redirect_uri=https%3A%2F%2Fwww.carfax.ca%2FService%2Fgarage&page=signup&locale=CA&scope=openid%20profile%20email&response_type=code&response_mode=query&nonce=Wmpldi1fekpGNkNRM0JUQXRtS1p6cGo3T3Jqfm9xR055YWphYlJJQWQ1aQ%3D%3D&code_challenge=AtczjyLE6CPfJqJRXE-B_A30XnynohG4edgzhxC3BjA&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtcmVhY3QiLCJ2ZXJzaW9uIjoiMS42LjAifQ%3D%3D
+12:03:39.190 login:1 Refused to execute script from 'https://www.carfax.eu/' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.
+12:03:39.191 login:11 Cross-Origin Read Blocking (CORB) blocked cross-origin response https://www.carfax.eu/ with MIME type text/html. See https://www.chromestatus.com/feature/5629709824032768 for more details.
+12:03:39.427 login:16 Cross-Origin Read Blocking (CORB) blocked cross-origin response https://www.carfax.eu/ with MIME type text/html. See https://www.chromestatus.com/feature/5629709824032768 for more details.
+12:03:39.891 login:21 Cross-Origin Read Blocking (CORB) blocked cross-origin response https://www.carfax.eu/ with MIME type text/html. See https://www.chromestatus.com/feature/5629709824032768 for more details.
+12:03:42.570 login:76 GET https://auth0-static.sharedservices.production.aws.carfax.io/44.0.0/styles.css?702e7d80a20436596540 net::ERR_NAME_NOT_RESOLVED
+12:03:42.570 login:81 GET https://auth0-static.sharedservices.production.aws.carfax.io/44.0.0/styles.js?702e7d80a20436596540 net::ERR_NAME_NOT_RESOLVED
+12:03:42.619 login:81 GET https://auth0-static.sharedservices.production.aws.carfax.io/44.0.0/client.js?702e7d80a20436596540 net::ERR_NAME_NOT_RESOLVED
+12:03:42.619 login:1 Refused to execute script from 'https://www.carfax.eu/' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.
+12:03:42.619 login:1 Refused to execute script from 'https://www.carfax.eu/' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.
+12:03:42.775 favicon.ico:1 GET https://auth.carfax.com/favicon.ico 404 (Not Found)

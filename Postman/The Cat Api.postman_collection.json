@@ -1,0 +1,1684 @@
+{
+	"info": {
+		"_postman_id": "7dd7aff0-639f-4d4c-beda-a66416d5a00c",
+		"name": "The Cat Api",
+		"description": "StartFragment\n\n\"**Run collection**\" doesn't work correctly because of POST queries in \"Images\" folder.\n\nEndFragment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17355994"
+	},
+	"item": [
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "Search All Images",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body of response is not empty\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.be.empty;\r",
+									"});\r",
+									"//body of response is not empty\r",
+									"let header = pm.response.headers.get(\"pagination-limit\");\r",
+									"pm.test(\"Response header value check\", function () {\r",
+									"    let par = \"10\";\r",
+									"    pm.expect(par).to.eql(header);\r",
+									"});\r",
+									"//response header value check\r",
+									"let header2 = pm.request.headers.get(\"x-api-key\");\r",
+									"pm.test(\"Request header is not empty\", function () {\r",
+									"    pm.expect(header2).not.to.be.empty;\r",
+									"});\r",
+									"// x-api-key header is not empty"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/search?limit=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"search"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "small",
+									"description": "full, med, small, thumb",
+									"disabled": true
+								},
+								{
+									"key": "mime_types",
+									"value": "gif",
+									"description": "jpg,gif,png",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "ASC",
+									"description": "RANDOM, ASC or DESC",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "1-100"
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Only used when order is ASC or DESC",
+									"disabled": true
+								},
+								{
+									"key": "category_ids",
+									"value": "7",
+									"description": "5,15,1,14,2,4,7",
+									"disabled": true
+								},
+								{
+									"key": "format",
+									"value": "json",
+									"description": "json, or src",
+									"disabled": true
+								},
+								{
+									"key": "breed_id",
+									"value": "",
+									"description": "list of breeds is located in breeds folder",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload My Image First",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Json value check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.sub_id).to.eql(\"Oigen\");\r",
+									"});\r",
+									"pm.test(\"Set variable\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"FirstID\", jsonData.id);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Oigen/Desktop/images.jpg"
+								},
+								{
+									"key": "sub_id",
+									"value": "Oigen",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/images/upload/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"upload",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload My Image Second",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Json value check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.sub_id).to.eql(\"Oigen\");\r",
+									"});\r",
+									"pm.test(\"Set variable\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"SecondID\", jsonData.id);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Oigen/Desktop/images 2.jpg"
+								},
+								{
+									"key": "sub_id",
+									"value": "Oigen",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/images/upload/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"upload",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Images",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body of response is not empty\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.be.empty;\r",
+									"});\r",
+									"let header2 = pm.request.headers.get(\"x-api-key\");\r",
+									"pm.test(\"Request header is not empty\", function () {\r",
+									"    pm.expect(header2).not.to.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/?limit=10&order=ASC",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "1-100"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "min 1",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "ASC",
+									"description": "ASC, DESC, RANDOM"
+								},
+								{
+									"key": "sub_id",
+									"value": "1",
+									"description": "sub id in upload (29)",
+									"disabled": true
+								},
+								{
+									"key": "breed_ids",
+									"value": "1",
+									"description": "string",
+									"disabled": true
+								},
+								{
+									"key": "category_ids",
+									"value": "1",
+									"description": "string",
+									"disabled": true
+								},
+								{
+									"key": "original_filename",
+									"value": "images 2.jpg",
+									"description": "string",
+									"disabled": true
+								},
+								{
+									"key": "format",
+									"value": "json",
+									"description": "json, src",
+									"disabled": true
+								},
+								{
+									"key": "include_vote",
+									"value": "1",
+									"description": "int (0 or 1)",
+									"disabled": true
+								},
+								{
+									"key": "include_favourite",
+									"value": "0",
+									"description": "int (0 or 1)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Images ID my first",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Json value check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.sub_id).to.eql(\"Oigen\");\r",
+									"});\r",
+									"pm.test(\"Response have key id check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"id\");\r",
+									"});\r",
+									"let someid = pm.environment.get(\"FirstID\");\r",
+									"pm.test(\"Equivalence check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(someid);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/{{FirstID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"{{FirstID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Images ID my second",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Json value check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.sub_id).to.eql(\"Oigen\");\r",
+									"});\r",
+									"pm.test(\"Response have key id check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"id\");\r",
+									"});\r",
+									"let someid = pm.environment.get(\"SecondID\");\r",
+									"pm.test(\"Equivalence check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(someid);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/{{SecondID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"{{SecondID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Analysis result of an uploaded first image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body of response is not empty\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/{{FirstID}}/analysis",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"{{FirstID}}",
+								"analysis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Analysis result of an uploaded second image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body of response is not empty\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/{{SecondID}}/analysis",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"{{SecondID}}",
+								"analysis"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favourites",
+			"item": [
+				{
+					"name": "Save image as favourite",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"pm.test(\"Set variable\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"FavouriteID\", jsonData.id);\r",
+									"});\r",
+									"pm.test(\"Json value check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"SUCCESS\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"image_id\": \"{{FirstID}}\",\r\n  \"sub_id\": \"Oigen\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/favourites/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"favourites",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get my favourites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body of response is not empty\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.be.empty;\r",
+									"});\r",
+									"let header2 = pm.request.headers.get(\"x-api-key\");\r",
+									"pm.test(\"Request header is not empty\", function () {\r",
+									"    pm.expect(header2).not.to.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/favourites/?sub_id=Oigen&limit=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"favourites",
+								""
+							],
+							"query": [
+								{
+									"key": "sub_id",
+									"value": "Oigen",
+									"description": "my sub id"
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"description": "1-100"
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"description": "1-100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific favourite by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Set variable\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"UserID\", jsonData.user_id);\r",
+									"});\r",
+									"let someid = pm.environment.get(\"FirstID\");\r",
+									"pm.test(\"Equivalence check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.image_id).to.eql(someid);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/favourites/{{FavouriteID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"favourites",
+								"{{FavouriteID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete my favourite image by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Message check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"SUCCESS\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/favourites/{{FavouriteID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"favourites",
+								"{{FavouriteID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Votes",
+			"item": [
+				{
+					"name": "Create a vote",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"pm.test(\"Set variable\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"VoteID\", jsonData.id);\r",
+									"});\r",
+									"pm.test(\"Json value check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"SUCCESS\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"image_id\": \"{{FirstID}}\",\r\n  \"sub_id\": \"Oigen\",\r\n  \"value\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/votes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"votes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get my votes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body of response is not empty\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.be.empty;\r",
+									"});\r",
+									"let header2 = pm.request.headers.get(\"x-api-key\");\r",
+									"pm.test(\"Request header is not empty\", function () {\r",
+									"    pm.expect(header2).not.to.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/votes/?sub_id=Oigen&limit=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"votes",
+								""
+							],
+							"query": [
+								{
+									"key": "sub_id",
+									"value": "Oigen"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "1-100"
+								},
+								{
+									"key": "page",
+									"value": "",
+									"description": "1-100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific vote by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"let someid = pm.environment.get(\"UserID\");\r",
+									"pm.test(\"Equivalence check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.user_id).to.eql(someid);\r",
+									"});\r",
+									"let someid2 = pm.environment.get(\"VoteID\");\r",
+									"pm.test(\"Equivalence check2\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(someid2);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/votes/{{VoteID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"votes",
+								"{{VoteID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete my votes by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Message check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"SUCCESS\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/votes/{{VoteID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"votes",
+								"{{VoteID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "List the categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body of response is not empty\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/categories/?limit=20",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20",
+									"description": "1-100"
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"description": "1-100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Breeds",
+			"item": [
+				{
+					"name": "List the cat breeds",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body of response is not empty\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.be.empty;\r",
+									"});\r",
+									"let header = pm.response.headers.get(\"pagination-count\");\r",
+									"pm.test(\"Response header value check 1\", function () {\r",
+									"    let par = \"67\";\r",
+									"    pm.expect(par).to.eql(header);\r",
+									"});\r",
+									"let header2 = pm.response.headers.get(\"pagination-limit\");\r",
+									"pm.test(\"Response header value check 2\", function () {\r",
+									"    let par2 = \"1000\";\r",
+									"    pm.expect(par2).to.eql(header2);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/breeds/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"breeds",
+								""
+							],
+							"query": [
+								{
+									"key": "attach_breed",
+									"value": "1",
+									"description": "?",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"description": "0-100",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "",
+									"description": "0-100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search breeds by name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body of response is not empty\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/breeds/search/?q=abys",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"breeds",
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "abys",
+									"description": "name of breed (id)"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete first uploaded image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"let header2 = pm.response.headers.get(\"Content-Type\");\r",
+							"pm.test(\"Response header value check\", function () {\r",
+							"    pm.expect(header2).not.to.be.empty;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-api-key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/images/{{FirstID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"images",
+						"{{FirstID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete second uploaded image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"let header2 = pm.response.headers.get(\"Content-Type\");\r",
+							"pm.test(\"Response header value check\", function () {\r",
+							"    pm.expect(header2).not.to.be.empty;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-api-key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/images/{{SecondID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"images",
+						"{{SecondID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sources",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body of response is not empty\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).not.to.be.empty;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "402e2929-61db-4e01-bbf5-42cda4ea4a37",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-api-key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/sources?limit=15&page=0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sources"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "15",
+							"description": "max 33"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Version",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Value 1\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"The Cat API\");\r",
+							"});\r",
+							"pm.test(\"Value 2\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.version).to.eql(\"1.0.10\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.thecatapi.com/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"thecatapi",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://api.thecatapi.com/v1",
+			"type": "string"
+		}
+	]
+}

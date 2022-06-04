@@ -1,0 +1,18 @@
+17:48:10.731 Navigated to https://www.npr.org/
+18:59:15.513 inner.html:1 [Violation] 'load' handler took 400ms
+18:59:16.454 4.610502e9d880291a2398.chunk.js:10 
+We are hiring!https://n.pr/tech-jobs
+18:59:16.731 1.758617e200b05894c13e.chunk.js:53 [Violation] 'setTimeout' handler took 525ms
+17:48:16.652 [Violation] Avoid using document.write(). <URL>
+17:48:16.652 [Violation] Avoid using document.write(). <URL>
+17:48:16.652 [Violation] Avoid using document.write(). <URL>
+17:48:16.652 [Violation] Avoid using document.write(). <URL>
+17:48:16.652 [Violation] Avoid using document.write(). <URL>
+17:48:16.652 [Violation] Avoid using document.write(). <URL>
+18:59:20.625 [Violation] 'requestIdleCallback' handler took 56ms
+17:49:35.256 Navigated to https://www.npr.org/about-npr/179878450/privacy-policy
+19:00:40.121 inner.html:1 [Violation] 'load' handler took 447ms
+19:00:41.140 71.a0053f2fe94a485573c6.chunk.js:20 
+We are hiring!https://n.pr/tech-jobs
+19:00:41.232 1.758617e200b05894c13e.chunk.js:53 [Violation] 'setTimeout' handler took 340ms
+

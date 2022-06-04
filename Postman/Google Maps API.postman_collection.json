@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "cbaadb17-000a-44b3-97ec-8e53589ecb88",
 		"name": "Google Maps API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17355994"
 	},
 	"item": [
 		{
