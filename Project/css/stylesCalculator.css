@@ -1,0 +1,81 @@
+/*Styles for calculator*/
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #c7529c 0%, #497BE8 100%);
+}
+
+.contr {
+    font-family: 'Righteous', cursive;
+    width: 95%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.calculator {
+    width: 370px;
+    margin: auto;
+    border-radius: 10px;
+    background: #f2f2f2;
+    padding: 15px 15px 20px 20px;
+    box-shadow: 0px 2px 4px 0px #000000;
+}
+
+#userInpt {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30px 5px;
+    background: rgb(224, 224, 224);
+    text-align: right;
+    direction: ltr;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+
+.buttn {
+    width: 24%;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-top: 3px;
+    background: rgb(224, 224, 224);
+    transition: all 0.4s ease;
+}
+
+.Equal {
+    width: 99%;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-top: 3px;
+    background: rgb(224, 224, 224);
+    transition: all 0.4s ease;
+}
+
+.buttn:hover,
+.Equal:hover {
+    background-color: rgb(52, 49, 49);
+    color: white;
+}
+
+@media(max-width: 480px) {
+    .buttn {
+        width: 23.4%;
+    }
+}
+
+@media(max-width: 320px) {
+    .buttn {
+        width: 23%;
+    }
+}
